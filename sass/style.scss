@@ -10,7 +10,7 @@ $font-text: 'Caladea', sans-serif;
 $font-logo: 'Great Vibes';
 $text-color: #000;
 $text-color-light: #fff;
-$text-color-logo: rgb(151, 196, 68);
+$text-color-logo: rgb(224, 205, 37);
 
 /* GLOBAL */
 
@@ -36,9 +36,21 @@ a{
     color: $text-color;
 }
 
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+
 /* NAV */
 
 nav{
+    position: absolute;
+    width: 100%;
+    margin: 0  auto;
+
     .navbar{
         display: flex;
         justify-content: space-between;
@@ -52,26 +64,79 @@ nav{
         }
 
         ul{ 
+            padding: 0;
             margin: 50px 0;
-            display: inline-flex;
+            display: flex;
             list-style: none;
            
             li{
-                margin-right: 20px;
+                margin-right: 30px;
 
                 &:last-child{
                     margin-right: 0;
                 }
 
                 a{
+                    display: inline-block;
                     text-transform: uppercase;
                     font-family: $font-header;
-                    font-weight: bold;
+                    //font-weight: bold;
                     font-size: 1rem;
                     color: $text-color-light;
+                    transform: scale(1, 0.9);
                 }
             }
         }
+    }
+}
+
+/* SPLASH */
+
+.splash{
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://images.pexels.com/photos/531321/pexels-photo-531321.jpeg?cs=srgb&dl=asfalt-ciemny-droga-drzewa-531321.jpg&fm=jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $text-color-light;
+
+    div{
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        :nth-child(1){
+            font-weight: normal;
+            font-style: italic;
+            text-transform: capitalize;
+            font-size: 2rem;
+        }
+
+        :nth-child(2){
+            font-family: $font-header;
+            text-transform: uppercase;
+            font-size: 4rem;
+        }
+
+        .btn{
+            font-family: $font-header;
+            text-align: center;
+            width: 220px;
+            height: 60px;
+            line-height: 60px;
+            background-color: $text-color-logo;
+            color: $text-color-light;
+            border-radius: 3px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.15em;
+        }
+
     }
 }
 
