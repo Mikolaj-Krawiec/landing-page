@@ -8,8 +8,9 @@
 $font-header: 'Roboto';
 $font-text: 'Caladea', sans-serif;
 $font-logo: 'Great Vibes';
-$text-color: #000;
-$text-color-light: #fff;
+$text-color: rgb(129, 129, 129);
+$text-color-light: rgb(255, 255, 255);
+$text-color-dark: rgb(0, 0, 0);
 $text-color-logo: rgb(224, 205, 37);
 
 /* GLOBAL */
@@ -17,13 +18,13 @@ $text-color-logo: rgb(224, 205, 37);
 *, *::before, *::after{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
 body{
     margin: 0;
     padding: 0;
     font-family :$font-text;
+    color: $text-color;
 }
 
 .container{
@@ -40,6 +41,21 @@ h1, h2, h3, h4, h5, h6{
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+.title{
+    margin: 90px auto;
+    text-align: center;
+
+    :nth-child(1){
+        font-size: 2rem;
+        font-family: $font-header;
+        text-transform: uppercase;
+        color: $text-color-dark;
+    }
+    :nth-child(2){
+        font-style: italic;
+    }
 }
 
 
@@ -137,6 +153,50 @@ nav{
             letter-spacing: 0.15em;
         }
 
+    }
+}
+
+/* SERVICES */
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 50px;
+
+        &:last-child{
+            margin-right: 0;
+        }
+
+        p{
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+            transform: scale(1, 0.9);
+            line-height: 1.5rem;
+        }
+
+        h3{
+            font-family: $font-header;
+            color: $text-color-dark;
+        }
+
+        i{
+            margin-bottom: 20px ;
+            text-align: center;
+            font-size: 2rem;
+            line-height: 4rem;
+            width: 4.5rem;
+            border: 3px solid $text-color-logo;
+            border-radius: 50%;
+            color: $text-color-logo;
+
+        }
     }
 }
 
