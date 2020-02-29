@@ -30,19 +30,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .title {
-  margin: 90px auto;
+  padding-top: 90px;
   text-align: center;
 }
 
 .title :nth-child(1) {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: "Roboto";
   text-transform: uppercase;
   color: black;
+  letter-spacing: 2px;
 }
 
 .title :nth-child(2) {
   font-style: italic;
+  margin: 0;
 }
 
 /* NAV */
@@ -138,24 +140,29 @@ nav .navbar ul li a {
 }
 
 /* SERVICES */
-.cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.services {
+  margin-bottom: 72px;
 }
 
-.cards div {
+.services .cards-1 {
+  margin-top: 90px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 -25px;
+}
+
+.services .cards-1 div {
+  flex: 1 0 25%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 50px;
+  margin: 25px;
 }
 
-.cards div:last-child {
-  margin-right: 0;
-}
-
-.cards div p {
+.services .cards-1 div p {
   display: inline-block;
   text-align: center;
   font-size: 0.9rem;
@@ -163,12 +170,12 @@ nav .navbar ul li a {
   line-height: 1.5rem;
 }
 
-.cards div h3 {
+.services .cards-1 div h3 {
   font-family: "Roboto";
   color: black;
 }
 
-.cards div i {
+.services .cards-1 div i {
   margin-bottom: 20px;
   text-align: center;
   font-size: 2rem;
@@ -177,6 +184,50 @@ nav .navbar ul li a {
   border: 3px solid #e0cd25;
   border-radius: 50%;
   color: #e0cd25;
+}
+
+/* PORTFOLIO */
+.portfolio {
+  background-color: whitesmoke;
+  justify-content: space-between;
+}
+
+.portfolio .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  padding: 75px 0;
+}
+
+.portfolio .wrap figure {
+  flex: 1 0 30%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  background-color: white;
+}
+
+.portfolio .wrap figure img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.portfolio .wrap figure figcaption {
+  text-align: center;
+  margin: 20px;
+}
+
+.portfolio .wrap figure figcaption :nth-child(1) {
+  font-weight: bold;
+  font-family: "Roboto";
+  color: black;
+}
+
+.portfolio .wrap figure figcaption :nth-child(2) {
+  margin: 0;
+  font-style: italic;
 }
 
 /* MEDIA */

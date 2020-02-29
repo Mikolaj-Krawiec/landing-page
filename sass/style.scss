@@ -8,10 +8,14 @@
 $font-header: 'Roboto';
 $font-text: 'Caladea', sans-serif;
 $font-logo: 'Great Vibes';
+
 $text-color: rgb(129, 129, 129);
 $text-color-light: rgb(255, 255, 255);
 $text-color-dark: rgb(0, 0, 0);
 $text-color-logo: rgb(224, 205, 37);
+
+$bg-color-1: rgb(255, 255, 255);
+$bg-color-2: rgb(245, 245, 245);
 
 /* GLOBAL */
 
@@ -44,17 +48,19 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .title{
-    margin: 90px auto;
+    padding-top: 90px;
     text-align: center;
 
     :nth-child(1){
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-family: $font-header;
         text-transform: uppercase;
         color: $text-color-dark;
+        letter-spacing: 2px;
     }
     :nth-child(2){
         font-style: italic;
+        margin: 0;
     }
 }
 
@@ -158,46 +164,97 @@ nav{
 
 /* SERVICES */
 
-.cards{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.services{
+    margin-bottom: 72px;
 
-    div{
+    .cards-1{
+        margin-top: 90px;;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-right: 50px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -25px;
 
-        &:last-child{
-            margin-right: 0;
-        }
+        div{
+            flex: 1 0 25%;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 25px;
 
-        p{
-            display: inline-block;
-            text-align: center;
-            font-size: 0.9rem;
-            transform: scale(1, 0.9);
-            line-height: 1.5rem;
-        }
+            p{
+                display: inline-block;
+                text-align: center;
+                font-size: 0.9rem;
+                transform: scale(1, 0.9);
+                line-height: 1.5rem;
+            }
 
-        h3{
-            font-family: $font-header;
-            color: $text-color-dark;
-        }
+            h3{
+                font-family: $font-header;
+                color: $text-color-dark;
+            }
 
-        i{
-            margin-bottom: 20px ;
-            text-align: center;
-            font-size: 2rem;
-            line-height: 4rem;
-            width: 4.5rem;
-            border: 3px solid $text-color-logo;
-            border-radius: 50%;
-            color: $text-color-logo;
-
+            i{
+                margin-bottom: 20px ;
+                text-align: center;
+                font-size: 2rem;
+                line-height: 4rem;
+                width: 4.5rem;
+                border: 3px solid $text-color-logo;
+                border-radius: 50%;
+                color: $text-color-logo;
+            }
         }
     }
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+    background-color: $bg-color-2;
+    justify-content: space-between;
+    
+    .wrap{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        padding: 75px 0;
+
+        figure{
+            flex: 1 0 30%;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            margin: 15px;
+            background-color: $bg-color-1;
+
+            img{
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+            }
+
+            figcaption{
+                text-align: center;
+                margin: 20px;
+
+                :nth-child(1){
+
+                     font-weight: bold;
+                     font-family: $font-header;
+                     color: $text-color-dark;
+                }
+
+                :nth-child(2){
+                    margin: 0;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
 }
 
 /* MEDIA */
