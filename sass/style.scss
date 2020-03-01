@@ -64,6 +64,11 @@ h1, h2, h3, h4, h5, h6{
     }
 }
 
+.flex-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 
 /* NAV */
@@ -74,11 +79,11 @@ nav{
     margin: 0  auto;
 
     .navbar{
-        display: flex;
         justify-content: space-between;
         align-items: center;
 
         .logo{
+            margin: 10px 0;
             text-transform: capitalize;
             font-family: $font-logo;
             font-size: 2rem;
@@ -102,10 +107,14 @@ nav{
                     display: inline-block;
                     text-transform: uppercase;
                     font-family: $font-header;
-                    //font-weight: bold;
                     font-size: 1rem;
                     color: $text-color-light;
                     transform: scale(1, 0.9);
+                    transition: all 0.5s;
+
+                    &:hover{
+                        color: $text-color-logo;
+                    }
                 }
             }
         }
@@ -157,6 +166,13 @@ nav{
             text-transform: uppercase;
             font-weight: bold;
             letter-spacing: 0.15em;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            transition: all 1s;
+
+            &:hover{
+                box-shadow: inset 0 0 40px rgb(255, 253, 126);
+
+            }
         }
 
     }
@@ -168,10 +184,6 @@ nav{
     margin-bottom: 65px;
 
     .cards{
-
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-between;
         margin: 65px -25px 0 -25px;
 
@@ -181,7 +193,7 @@ nav{
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 25px;
+            padding: 25px;
 
             p{
                 display: inline-block;
@@ -215,25 +227,33 @@ nav{
 .portfolio{
     background-color: $bg-color-2;
     justify-content: space-between;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
     
-    .wrap{
-        display: flex;
-        flex-wrap: wrap;
+    .portfolio-cards{
         margin: 0 -15px;
         padding: 75px 0;
+        justify-content: center;
 
         figure{
+            margin: 15px;
             flex: 1 0 30%;
             min-width: 300px;
             display: flex;
             flex-direction: column;
-            margin: 15px;
             background-color: $bg-color-1;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+            a:hover img{
+                opacity: 1;
+            }
 
             img{
+                opacity: 0.8;
+                overflow: hidden;
                 width: 100%;
                 height: 300px;
                 object-fit: cover;
+                transition: all 0.5s;
             }
 
             figcaption{
@@ -261,7 +281,6 @@ nav{
 
 footer{
     width: 100%;
-    display: flex;
     align-items: center;
     padding: 30px 0;
 
@@ -294,26 +313,78 @@ footer{
 
 /* MEDIA */
 
-@media (min-width: 576px) { 
-    .container{
-        max-width: 540px;
-    }
- }
-
-@media (min-width: 768px) {
-    .container{
-        max-width: 720px;
-    }
- }
-
-@media (min-width: 992px) {
-    .container{
-        max-width: 960px;
-    }
-}
-
 @media (min-width: 1200px) {
     .container{
         max-width: 1140px;
     }
 }
+
+@media (max-width: 1200px) {
+    .container{
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container{
+        max-width: 720px;
+    }
+ }
+
+ @media (max-width: 768px) { 
+    .container{
+        max-width: 540px;
+    }
+ 
+    .services .cards{
+        margin: 0;
+    }
+
+        footer {
+            flex-direction: column !important; 
+
+            p{
+            margin: 10px 0;
+            position: relative;
+            order: 1;
+        }
+    }
+}
+@media (max-width:  576px) { 
+
+    .flex-wrap{
+        flex-direction: column;  
+    }
+
+    .portfolio .portfolio-cards{
+        margin: 0;
+    }
+
+    .services .cards{
+        padding: 25px 0;
+    }
+
+    .services .cards{
+        margin: 65px 0 0 0;
+    }
+
+    nav .navbar ul{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 0;
+
+        li{
+            margin: 5px 20px;
+
+            &:last-child{
+                margin-right: 20px;
+            }
+        }
+    }
+ }
+
+
+
+

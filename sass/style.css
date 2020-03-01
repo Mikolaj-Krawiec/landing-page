@@ -47,6 +47,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 /* NAV */
 nav {
   position: absolute;
@@ -55,12 +61,12 @@ nav {
 }
 
 nav .navbar {
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 nav .navbar .logo {
+  margin: 10px 0;
   text-transform: capitalize;
   font-family: "Great Vibes";
   font-size: 2rem;
@@ -89,6 +95,11 @@ nav .navbar ul li a {
   font-size: 1rem;
   color: white;
   transform: scale(1, 0.9);
+  transition: all 0.5s;
+}
+
+nav .navbar ul li a:hover {
+  color: #e0cd25;
 }
 
 /* SPLASH */
@@ -137,6 +148,12 @@ nav .navbar ul li a {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.15em;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  transition: all 1s;
+}
+
+.splash div .btn:hover {
+  box-shadow: inset 0 0 40px #fffd7e;
 }
 
 /* SERVICES */
@@ -145,9 +162,6 @@ nav .navbar ul li a {
 }
 
 .services .cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   margin: 65px -25px 0 -25px;
 }
@@ -158,7 +172,7 @@ nav .navbar ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 25px;
+  padding: 25px;
 }
 
 .services .cards div p {
@@ -189,42 +203,50 @@ nav .navbar ul li a {
 .portfolio {
   background-color: whitesmoke;
   justify-content: space-between;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.portfolio .wrap {
-  display: flex;
-  flex-wrap: wrap;
+.portfolio .portfolio-cards {
   margin: 0 -15px;
   padding: 75px 0;
+  justify-content: center;
 }
 
-.portfolio .wrap figure {
+.portfolio .portfolio-cards figure {
+  margin: 15px;
   flex: 1 0 30%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  margin: 15px;
   background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.portfolio .wrap figure img {
+.portfolio .portfolio-cards figure a:hover img {
+  opacity: 1;
+}
+
+.portfolio .portfolio-cards figure img {
+  opacity: 0.8;
+  overflow: hidden;
   width: 100%;
   height: 300px;
   object-fit: cover;
+  transition: all 0.5s;
 }
 
-.portfolio .wrap figure figcaption {
+.portfolio .portfolio-cards figure figcaption {
   text-align: center;
   margin: 20px;
 }
 
-.portfolio .wrap figure figcaption :nth-child(1) {
+.portfolio .portfolio-cards figure figcaption :nth-child(1) {
   font-weight: bold;
   font-family: "Roboto";
   color: black;
 }
 
-.portfolio .wrap figure figcaption :nth-child(2) {
+.portfolio .portfolio-cards figure figcaption :nth-child(2) {
   margin: 0;
   font-style: italic;
 }
@@ -232,7 +254,6 @@ nav .navbar ul li a {
 /* FOOTER */
 footer {
   width: 100%;
-  display: flex;
   align-items: center;
   padding: 30px 0;
 }
@@ -263,26 +284,65 @@ footer .social i {
 }
 
 /* MEDIA */
-@media (min-width: 576px) {
+@media (min-width: 1200px) {
   .container {
-    max-width: 540px;
+    max-width: 1140px;
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
+@media (max-width: 1200px) {
   .container {
     max-width: 960px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 992px) {
   .container {
-    max-width: 1140px;
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+  .services .cards {
+    margin: 0;
+  }
+  footer {
+    flex-direction: column !important;
+  }
+  footer p {
+    margin: 10px 0;
+    position: relative;
+    order: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .flex-wrap {
+    flex-direction: column;
+  }
+  .portfolio .portfolio-cards {
+    margin: 0;
+  }
+  .services .cards {
+    padding: 25px 0;
+  }
+  .services .cards {
+    margin: 65px 0 0 0;
+  }
+  nav .navbar ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0;
+  }
+  nav .navbar ul li {
+    margin: 5px 20px;
+  }
+  nav .navbar ul li:last-child {
+    margin-right: 20px;
   }
 }
