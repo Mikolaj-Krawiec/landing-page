@@ -60,6 +60,14 @@ nav {
   margin: 0  auto;
 }
 
+nav input {
+  display: none;
+}
+
+nav label {
+  display: none;
+}
+
 nav .navbar {
   justify-content: space-between;
   align-items: center;
@@ -81,6 +89,7 @@ nav .navbar ul {
 }
 
 nav .navbar ul li {
+  position: relative;
   margin-right: 30px;
 }
 
@@ -100,6 +109,37 @@ nav .navbar ul li a {
 
 nav .navbar ul li a:hover {
   color: #e0cd25;
+}
+
+nav .navbar ul li .dropdown {
+  z-index: -10;
+  padding-top: 10px;
+  width: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav .navbar ul li .dropdown li {
+  text-align: center;
+  margin: 5px 0;
+}
+
+nav .navbar ul li .dropdown li a {
+  transition: 1s ease;
+  opacity: 0;
+}
+
+nav .navbar ul li:hover .dropdown {
+  z-index: 10;
+}
+
+nav .navbar ul li:hover .dropdown li a {
+  opacity: 1;
 }
 
 /* SPLASH */
@@ -350,5 +390,86 @@ footer .social i {
   }
   nav .navbar ul li:last-child {
     margin-right: 20px;
+  }
+  /* NAV*/
+  nav {
+    z-index: 1000;
+    position: fixed;
+  }
+  nav label {
+    z-index: 1001;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    margin: 10px 20px;
+    color: #e0cd25;
+    display: block;
+    cursor: pointer;
+  }
+  nav input:checked ~ .navbar ul {
+    transform: translateY(0px);
+  }
+  nav input:checked ~ .navbar .logo {
+    transform: translateX(-200px);
+  }
+  nav .navbar {
+    display: flex;
+    flex-direction: row;
+  }
+  nav .navbar .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: all 1s;
+    margin: 0;
+  }
+  nav .navbar ul {
+    padding: 10px 0;
+    transform: translateY(-200px);
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    transition: all 1s;
+    width: 100%;
+    background-color: #555;
+  }
+  nav .navbar ul li {
+    min-height: 24px;
+    margin: 0;
+  }
+  nav .navbar ul li:last-child {
+    margin-right: 0;
+  }
+  nav .navbar ul li .dropdown {
+    background-color: rgba(224, 205, 37, 0.8);
+    position: static;
+    z-index: 1000;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    display: block;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    height: 0;
+    margin: 0 auto;
+    color: white;
+    width: 100%;
+  }
+  nav .navbar ul li .dropdown li {
+    text-align: center;
+    margin: 0;
+  }
+  nav .navbar ul li .dropdown li a:hover {
+    color: black;
+  }
+  nav .navbar ul li:hover .dropdown {
+    padding-top: 10px;
+    position: static;
+    transform: scaleY(1);
+    opacity: 1;
+    height: 90px;
   }
 }
