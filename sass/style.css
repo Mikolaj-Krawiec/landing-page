@@ -153,7 +153,7 @@ nav .navbar ul li a:hover {
 }
 
 .splash div .btn:hover {
-  box-shadow: inset 0 0 40px #fffd7e;
+  box-shadow: 0 0 40px #fffd7e;
 }
 
 /* SERVICES */
@@ -271,6 +271,11 @@ footer .social {
   font-size: 0;
 }
 
+footer .social a:hover i {
+  color: #e0cd25;
+  box-shadow: 0 0 15px #e0cd25;
+}
+
 footer .social i {
   text-align: center;
   line-height: 40px;
@@ -281,6 +286,7 @@ footer .social i {
   background-color: black;
   border-radius: 50%;
   margin: 10px;
+  transition: all 0.5s;
 }
 
 /* MEDIA */
